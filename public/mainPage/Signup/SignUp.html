@@ -1,0 +1,125 @@
+<!--
+<div>
+  <nav class="navbar navbar-default">
+    <div class="col-md-12 col-lg-12   col-sm-12">
+      <div class="navbar-header ">
+        <button
+          type="button"
+          class="navbar-toggle"
+          ng-click="isCollapsed = !isCollapsed"
+          aria-expanded="true"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand glyphicon glyphicon-stats" href="#">PkStock</a>
+      </div>
+
+      <div
+        class="navbar-collapse collapse in"
+        collapse="isCollapsed"
+        aria-expanded="true"
+      >
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#/Snack">Snack</a></li>
+          <li><a href="#/Blog">Blog</a></li>
+          <li><a href="#/Help">Help</a></li>
+          <li><a href="#/Login">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<div></div>
+<img
+  class=" register_img col-xl-4 col-md-5 col-lg-4 col-sm-5 col-xs-3"
+  ng-src="{{ register_image }}"
+  alt="lghfsdhkfjsdljkfasnjn"
+/>
+
+<form
+  class="register_form col-xl-4 col-md-4 col-lg-4 col-sm-5 col-xs-7"
+  ng-submit="register()"
+>
+  
+ 
+
+</form>
+
+-->
+
+<div class="modal-content">
+  <div class="modal-body">
+    <div class="text-center center_login_title">Register</div>
+    <form name ="registerForm" novalidate ng-submit = 'registerForm.$valid'>
+       
+<br /><br />
+<span  class="red_link message" ng-show="registerForm.firstname.$error.required"> Required </span>
+
+    <input
+      type="text"
+      ng-model="user.firstname"
+      placeholder="Firstname"
+      class="form-control"
+      name="firstname"
+      required
+    />
+
+    <br />
+    <input
+      type="text"
+      ng-model="user.lastname"
+      placeholder="Lastname"
+      class="form-control "
+    /><br />
+    <span  class="red_link message" ng-show="registerForm.email.$error.required"> Required </span>
+
+    <span  class="red_link message"ng-show="registerForm.email.$dirty&&registerForm.email.$error.pattern">Please Enter Valid Email</span>
+
+    <input
+      type="email"
+      ng-model="user.email"
+      placeholder="email"
+      class="form-control "
+      name="email"
+      ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+      required
+    />
+   <br />
+   <span  class="red_link message" ng-show="registerForm.password.$error.required">Required</span>
+   <span  class="red_link message"ng-show="registerForm.password.$dirty&&registerForm.password.$error.pattern"> atleast one capital & char & numb, minimum 8 character</span>
+
+   <input
+      type="password"
+      ng-model="user.password"
+      placeholder="Password"
+      class="form-control"
+      name="password"
+      required
+      ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/"
+    />
+    
+  </form>
+
+   
+    <p class="red_link" ng-hide>{{ already_registered }}</p>
+
+    <br />
+  </div>
+  <div class="text-center">
+    <button type="button" class="btn btn-success" ng-click="ok()">
+      Register
+    </button>
+
+    <button type="button" class="btn btn-default" ng-click="cancel()">
+      Cancel
+    </button>
+    <br /><br />
+    <div class="text-center">
+      <a class=".green_link " href="#">Reset Password/Forget Password?</a>
+    </div>
+  </div>
+</div>
+<!-- /.modal-content -->
