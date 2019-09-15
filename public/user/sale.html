@@ -1,0 +1,49 @@
+<div class="modal-content">
+    <div class="modal-body">
+      <div class="text-center center_login_title">{{StockName}}</div>
+  
+      <input
+        type="number"
+        ng-model="stock.Quantity"
+        placeholder="Quantity you want to sale"
+        class="form-control"
+        required
+        ng-keydown = "limitCheck($event)"   
+
+ng-keyup="limitCheck($event)"  
+/>
+ 
+    
+      
+      
+      
+      <br />
+      <input
+      type="number"
+      ng-model="stock.Amount"
+      placeholder="Amount you proposed"
+      class="form-control"
+      required
+      
+    />
+    </div>     
+
+  <div class="text-center">
+    <button type="button" class="btn btn-success" ng-click="ok()">
+     Submit
+    </button>
+
+    <button type="button" class="btn btn-default" ng-click="cancel()">
+      Close
+    </button>
+    <br /><br />
+   
+  <p  class="text-center red_link">{{error_message_login}}</p>
+
+  </div>
+</div>
+   
+  
+  </div>
+  <!-- /.modal-content -->
+  

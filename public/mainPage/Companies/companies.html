@@ -1,0 +1,246 @@
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+  integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+  crossorigin="anonymous"
+/>
+
+<div>
+  <nav class="navbar navbar-default">
+    <div class="col-md-12 col-lg-12   col-sm-12">
+      <div class="navbar-header ">
+        <button
+          type="button"
+          class="navbar-toggle"
+          ng-click="isCollapsed = !isCollapsed"
+          aria-expanded="true"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand glyphicon glyphicon-stats" href="#/">PkStock</a>
+      </div>
+
+      <div
+        class="navbar-collapse collapse in"
+        collapse="isCollapsed"
+        aria-expanded="true"
+      >
+        <ul class="nav navbar-nav navbar-right">
+          <li><a ng-click="open_notification()">Notification</a></li>
+          <li><a href="#/Blog">Blog</a></li>
+
+          <li><a href="#/Help">Help</a></li>
+          <li><a ng-click="open_login('')">Login</a></li>
+          <li><a ng-click="open_register()">SignUp</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<div
+  class="margin Stockscroll scroll   text-center col-xl-3 col-md-4 col-lg-3 col-sm-4 col-xs-11  "
+>
+  <div class="  card-title">Companies</div>
+    <div class="  StockCard" >
+      <hr>
+
+<a class="btn btn-dark marginbottom" ng-click="show_companies('topCompanies')">Top Companies</a>
+
+  </div>
+  <div class="  StockCard" >
+
+      <a  class="btn btn-dark margintop marginbottom" ng-click="show_companies('HighSharesRates')">High Share rates</a> 
+
+        </div>
+
+        <div class="  StockCard" >
+
+            <a  class="btn btn-dark margintop marginbottom" ng-click="show_companies('LowSharesRates')">Low Share rates</a>
+      
+              </div>
+              
+        <div class="  StockCard" >
+
+            <a  class="btn btn-dark margintop marginbottom" ng-click="show_companies('Defaulter')">Defaulter</a>
+      
+              </div>
+              <div class="  StockCard" >
+      
+                  <a  class="btn btn-dark margintop marginbottom" ng-click="show_companies('FinancialReports')">Financial Reports</a>
+            
+                    </div>
+                    <div class="  StockCard" >
+      
+                        <a  class="btn btn-dark margintop marginbottom" ng-click="show_companies('AllCompanies')">All Companies</a>
+                  
+                          </div>
+      
+      
+
+</div>
+
+<div class="col-xl-8 col-md-7 col-lg-8 col-sm-7 col-xs-11">
+  <div ng-show="companies.topCompanies">
+    <form action="" class="searchbar">
+      <input
+        class="searchbarinput"
+        type="search"
+        placeholder="search"
+        ng-model="search"
+      />
+      <i class="fa fa-search searchicon"></i>
+    </form>
+
+    <table class="table table-striped">
+      <th>Sr.</th>
+      <th>Symbol</th>
+      <th>Name</th>
+      <th>Total Stock</th>
+      <th>Rates</th>
+
+      <tr ng-repeat="company in company | filter:search">
+        <td class="nowrap">{{ $index + 1 }}</td>
+        <td class="nowrap">{{ company.companySymbol }}</td>
+        <td class="nowrap">{{ company.companyName }}</td>
+
+        <td class="nowrap">{{ company.companyStock }}</td>
+        <td class="nowrap">{{ company.companyStockRate }}</td>
+      </tr>
+    </table>
+  </div>
+  <div ng-show="companies.HighSharesRates">
+    <form action="" class="searchbar">
+      <input
+        class="searchbarinput"
+        type="search"
+        placeholder="search"
+        ng-model="search"
+      />
+      <i class="fa fa-search searchicon"></i>
+    </form>
+
+    <table class="table table-striped">
+      <th>Sr.</th>
+      <th>Symbol</th>
+      <th>Name</th>
+      <th>Total Stock</th>
+      <th>Rates</th>
+
+      <tr ng-repeat="company in company | filter:search">
+        <td class="nowrap">{{ $index + 1 }}</td>
+        <td class="nowrap">{{ company.companySymbol }}</td>
+        <td class="nowrap">{{ company.companyName }}</td>
+
+        <td class="nowrap">{{ company.companyStock }}</td>
+        <td class="nowrap">{{ company.companyStockRate }}</td>
+      </tr>
+    </table>
+  </div>
+  <div ng-show="companies.LowSharesRates">
+    <form action="" class="searchbar">
+      <input
+        class="searchbarinput"
+        type="search"
+        placeholder="search"
+        ng-model="search"
+      />
+      <i class="fa fa-search searchicon"></i>
+    </form>
+
+    <table class="table table-striped">
+      <th>Sr.</th>
+      <th>Symbol</th>
+      <th>Name</th>
+      <th>Total Stock</th>
+      <th>Rates</th>
+
+      <tr ng-repeat="company in company | filter:search">
+        <td class="nowrap">{{ $index + 1 }}</td>
+        <td class="nowrap">{{ company.companySymbol }}</td>
+        <td class="nowrap">{{ company.companyName }}</td>
+
+        <td class="nowrap">{{ company.companyStock }}</td>
+        <td class="nowrap">{{ company.companyStockRate }}</td>
+      </tr>
+    </table>
+  </div>
+  <div ng-show="companies.Defaulter">
+    <form action="" class="searchbar">
+      <input
+        class="searchbarinput"
+        type="search"
+        placeholder="search"
+        ng-model="search"
+      />
+      <i class="fa fa-search searchicon"></i>
+    </form>
+
+    <table class="table table-striped">
+      <th>Sr.</th>
+      <th>Symbol</th>
+      <th>Name</th>
+      <th>Total Stock</th>
+      <th>Rates</th>
+
+      <tr ng-repeat="company in company | filter:search">
+        <td class="nowrap">{{ $index + 1 }}</td>
+        <td class="nowrap">{{ company.companySymbol }}</td>
+        <td class="nowrap">{{ company.companyName }}</td>
+
+        <td class="nowrap">{{ company.companyStock }}</td>
+        <td class="nowrap">{{ company.companyStockRate }}</td>
+      </tr>
+    </table>
+  </div>
+  <div ng-show="companies.FinancialReports">
+    <input type="text" ng-model="search" />
+
+    <table class="table table-striped">
+      <th>Sr.</th>
+      <th>Symbol</th>
+      <th>Name</th>
+      <th>Total Stock</th>
+      <th>Rates</th>
+
+      <tr ng-repeat="company in company | filter:search">
+        <td class="nowrap">{{ $index + 1 }}</td>
+        <td class="nowrap">{{ company.companySymbol }}</td>
+        <td class="nowrap">{{ company.companyName }}</td>
+
+        <td class="nowrap">{{ company.companyStock }}</td>
+        <td class="nowrap">{{ company.companyStockRate }}</td>
+      </tr>
+    </table>
+  </div>
+  <div ng-show="companies.AllCompanies">
+    <form action="" class="searchbar">
+      <input
+        class="searchbarinput"
+        type="search"
+        placeholder="search"
+        ng-model="search"
+      />
+      <i class="fa fa-search searchicon"></i>
+    </form>
+
+    <table class="table table-striped">
+      <th>Sr.</th>
+      <th>Symbol</th>
+      <th>Name</th>
+      <th>Total Stock</th>
+      <th>Rates</th>
+
+      <tr ng-repeat="company in company | filter:search">
+        <td class="nowrap">{{ $index + 1 }}</td>
+        <td class="nowrap">{{ company.companySymbol }}</td>
+        <td class="nowrap">{{ company.companyName }}</td>
+
+        <td class="nowrap">{{ company.companyStock }}</td>
+        <td class="nowrap">{{ company.companyStockRate }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

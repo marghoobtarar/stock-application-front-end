@@ -1,0 +1,241 @@
+<div>
+  <nav class="navbar navbar-default">
+    <div class="col-md-12 col-lg-12   col-sm-12">
+      <div class="navbar-header ">
+        <button
+          type="button"
+          class="navbar-toggle"
+          ng-click="isCollapsed = !isCollapsed"
+          aria-expanded="true"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand glyphicon glyphicon-stats" href="#/">PkStock</a>
+      </div>
+
+      <div
+        class="navbar-collapse collapse in"
+        collapse="isCollapsed"
+        aria-expanded="true"
+      >
+        <ul class="nav navbar-nav navbar-right">
+          <li><a ng-click="open_notification()">Notification</a></li>
+          <li><a href="#/Blog">Blog</a></li>
+          <li><a href="#/Help">Help</a></li>
+          <li><a ng-click="open_login()">Login</a></li>
+          <li><a  ng-click="open_register()">SignUp</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<div>
+  <!--image-->
+  <img
+    class="Welcome-image  img-responsive img-thumbnail col-xl-8 col-md-6 col-lg-8 col-sm-5 col-xs-10" style=" height: 80%"
+    ng-src="{{ Background }}"
+    alt=""
+  />
+  <div
+    class="margin scroll   text-center col-xl-3 col-md-4 col-lg-3 col-sm-5 col-xs-10 "
+  >
+    <h class="  card-title">Menu</h>
+    <div class="container-fluid ">
+      <div class=" card individual_card">
+        <img class=" img-responsive" ng-src="{{ Learn }}" alt="Learn" />
+        <div class="card-body">
+          <p class="card-text"></p>
+          <a href="#/Learn" class="btn btn-dark">Learn Stock Market</a>
+        </div>
+      </div>
+      <div class=" card individual_card">
+        <img
+          class=" img-responsive"
+          ng-src="{{ Companies }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <p class="card-text"></p>
+          <a href="#/Companies" class="btn btn-dark">Companies</a>
+        </div>
+      </div>
+      <div class=" card individual_card">
+        <img
+          class=" img-responsive"
+          ng-src="{{ new_investor_guidance }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <p class="card-text"></p>
+          <a href="#/Naive" class="btn btn-dark">New Investor Guidance</a>
+        </div>
+      </div>
+      <div class=" card individual_card">
+        <img
+          class=" img-responsive"
+          ng-src="{{ Articles }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <p class="card-text"></p>
+          <a href="#/Article" class="btn btn-dark">Articles</a>
+        </div>
+      </div>
+      <div class=" card individual_card">
+        <img
+          class=" img-responsive"
+          ng-src="{{ Media }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <p class="card-text"></p>
+          <a href="#/Media" class="btn btn-dark">Media</a>
+        </div>
+      </div>
+      <div class=" card individual_card">
+        <img
+          class=" img-responsive"
+          ng-src="{{ Complaint }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <p class="card-text"></p>
+          <a href="#/Complaint" class="btn btn-dark">Complaint</a>
+        </div>
+      </div>
+
+      <div class=" card individual_card">
+        <img
+          class=" img-responsive"
+          ng-src="{{ regulations }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <p class="card-text"></p>
+          <a href="#/Laws" class="btn btn-dark">Laws & Regulations</a>
+        </div>
+      </div>
+      <div class=" card individual_card">
+        <img
+          class=" img-responsive"
+          ng-src="{{ About }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <p class="card-text"></p>
+          <a href="#/Us" class="btn btn-dark">About Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="w3-sidebar w3-bar-block" style="width:5%;right:0">
+    <a href="#" class="w3-bar-item w3-button">Link 1</a> 
+    <a href="#" class="w3-bar-item w3-button">Link 2</a> 
+    <a href="#" class="w3-bar-item w3-button">Link 3</a> 
+  </div>
+
+  -->
+
+<div class="float-sm">
+  <div class="fl-fl float-fb">
+    <i class="fa fa-facebook"></i>
+    <a href="" target="_blank">Facebook</a>
+  </div>
+  <div class="fl-fl float-tw">
+    <i class="fa fa-twitter"></i>
+    <a href="" target="_blank">Twitter</a>
+  </div>
+
+  <div class="fl-fl float-gp">
+    <i class="fa fa-google-plus"></i>
+    <a href="" target="_blank">Google</a>
+  </div>
+  <div class="fl-fl float-rs">
+    <i class="fa fa-rss"></i>
+    <a href="" target="_blank">RSS</a>
+  </div>
+  <div class="fl-fl float-ig">
+    <i class="fa fa-instagram"></i>
+    <a href="" target="_blank">Instagram</a>
+  </div>
+  <div class="fl-fl float-pn">
+    <i class="fa fa-pinterest"></i>
+    <a href="" target="_blank">Pinterest</a>
+  </div>
+</div>
+<div class="footer col-xl-12 col-md-12 col-lg-12 col-sm-12 col-xs-12">
+  <div
+    class="Contact-us text-center col-xl-6 col-md-6 col-lg-6 col-sm-12 col-xs-12"
+  >
+    <div class=" col-xl-6 col-md-6 col-lg-6 col-sm-12 col-xs-12">
+      <span class="footer-text-color"> Why invest in PkStock?</span>
+      <p>
+        Pakistan Stock lets you buy and sell stocks like most other stock
+        trading apps, but it also allows you to gift single shares of stock or
+        buy fractional shares with a very low 99-cent trade fee. You can invest
+        in a portion of a share instead with a much lower minimum investment.
+      </p>
+    </div>
+    <div class="col-xl-6 col-md-6 col-lg-6 col-sm-12 col-xs-12">
+      <div class="list">
+        <div class="row">
+          <div><span class="footer-text-color">Cotact Us</span></div>
+          <div class="footer-inner-font">
+            <span class="glyphicon glyphicon-envelope"
+              >Stockbuy786@gmail.com</span
+            >
+          </div>
+          <div class="footer-inner-font">
+            <span class="glyphicon glyphicon-phone">0092306-5272898</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="footer-text-color Contact-us text-center col-xl-6 col-md-6 col-lg-6 col-sm-12 col-xs-12"
+  >
+    <div>
+      Feedback
+      <form class="main-page-form " ng-submit="open()">
+        <input
+          type="text"
+          ng-model="user.username"
+          placeholder="Name"
+          class="form-control"
+        /><br />
+        <input
+          type="email"
+          ng-model="user.email"
+          placeholder="Email adress"
+          class="form-control"
+          required
+        /><br />
+        <textarea
+          ng-model="user.feedback"
+          placeholder="please write your fedback here!"
+          class="form-control"
+          required
+        ></textarea
+        ><br />
+
+        <input
+          type="submit"
+          value="Submit"
+          class=" col-md-offset-3 btn btn-success col-md-6"
+        />
+      </form>
+    </div>
+  </div>
+  <footer
+    class="footer-copyright text-center col-xl-12 col-md-12 col-lg-12 col-sm-12 col-xs-12"
+  >
+    @ Copyright developed by Arhum ali ,Ahmad Raza & Marghoob Ahmad
+  </footer>
+</div>

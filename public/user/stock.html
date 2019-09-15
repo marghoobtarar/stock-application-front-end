@@ -1,0 +1,152 @@
+
+
+
+
+
+<div>
+        <nav class="navbar navbar-default">
+          <div class="col-md-12 col-lg-12   col-sm-12">
+            <div class="navbar-header ">
+              <button
+                type="button"
+                class="navbar-toggle"
+                ng-click="isCollapsed = !isCollapsed"
+                aria-expanded="true"
+              >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand glyphicon glyphicon-stats" href="#/User"
+                >PkStock</a
+              >
+            </div>
+      
+            <div
+              class="navbar-collapse collapse in"
+              collapse="isCollapsed"
+              aria-expanded="true"
+            >
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a ng-href="#/Account">Account</a></li>
+                  <li><a ng-href="#/Repository">Repository</a></li>
+                  <li><a ng-click="logout()">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+        <!-- Search -->
+        <div class=" search col-xl-3 col-md-5 col-lg-5  col-sm-5 col-xs-7">
+          
+                <inc-search 
+                    class="stockSearch"
+                      id="stockSearch"
+                      ng-model="Stock" 
+                      inc-item-value="name" 
+                      inc-searcher="findStock" 
+                      inc-item-label="this.name" 
+                      inc-selected-label="Stock.name" />
+                </div>
+      
+
+
+                <div class="graph col-xl-5 col-md-8 col-lg-7  col-sm-7 col-xs-11 ">
+                  <div class="" id="chart-container"></div>
+    
+              </div>
+
+                <div
+                class="stock Stockscroll   text-center col-xl-2 col-md-3 col-lg-3 col-sm-4 col-xs-11 "
+              >
+
+              
+              <div  >
+                      <span class="individualStock">  Buy {{StockName}}</span> 
+                         <hr>
+              </div>
+              <div ng-show="stockDetail">
+              <div class="btnhover">
+                  <div ng-show="positive" id="{{conditionColor}}" class="color col-xl-2 col-md-2 col-lg-2 col-sm-2 col-xs-2  glyphicon glyphicon-arrow-up"></div>
+                  <div ng-show="negative" id="{{conditionColor}}" class="color col-xl-2 col-md-2 col-lg-2 col-sm-2 col-xs-2  glyphicon glyphicon-arrow-down"></div>
+
+                  <div id="{{conditionColor}}" class="color col-xl-4 col-md-4 col-lg-4 col-sm-4 col-xs-4 ">     Change    </div>
+                  <div  id="{{conditionColor}}" class="color col-xl-6 col-md-6 col-lg-6 col-sm-6 col-xs-6 ">    {{StockChange}}    </div>       
+              </div>
+                         <div >
+                            <div class="color col-xl-2 col-md-2 col-lg-2 col-sm-2 col-xs-2 "></div>
+
+
+                        <div class=" color col-xl-4 col-md-4 col-lg-4 col-sm-4 col-xs-4">    Current     </div>       
+                         <div  class="color col-xl-6 col-md-6 col-lg-6 col-sm-6 col-xs-6 ">  {{StockCurrent}}    </div>       
+                        </div>
+              <div>
+                  <div class="color col-xl-2 col-md-2 col-lg-2 col-sm-2 col-xs-2 "></div>
+
+
+                  <div class="color col-xl-4 col-md-4 col-lg-4 col-sm-4 col-xs-4 ">       Volume   </div>       
+                      <div  class="color col-xl-6 col-md-6 col-lg-6 col-sm-6 col-xs-6 ">  {{StockVolume}}    </div>       
+              </div>
+             
+              <div >
+                  <div class="color col-xl-2 col-md-2 col-lg-2 col-sm-2 col-xs-2 "></div>
+
+                  <div class="color col-xl-4 col-md-4 col-lg-4 col-sm-4 col-xs-4">   High       </div>  
+                      <div class="color col-xl-6 col-md-6 col-lg-6 col-sm-6 col-xs-6 ">   {{StockHigh}}   </div>     
+              </div>
+              <div >
+                  <div class="color col-xl-2 col-md-2 col-lg-2 col-sm-2 col-xs-2 "></div>
+
+                  <div class="color col-xl-4 col-md-4 col-lg-4 col-sm-4 col-xs-4">   Low      </div>
+                  <div class="color col-xl-6 col-md-6 col-lg-6 col-sm-6 col-xs-6 ">    {{StockLow}}    </div>       
+              </div>
+              <div >
+                  <div class="color col-xl-2 col-md-2 col-lg-2 col-sm-2 col-xs-2 "></div>
+
+                  <div class="color col-xl-4 col-md-4 col-lg-4 col-sm-4 col-xs-4">   Open    </div>
+                  <div class="color col-xl-6 col-md-6 col-lg-6 col-sm-6 col-xs-6 ">    {{StockOpen}}    </div>  
+                  
+              <div class="  individualStock   col-xl-12 col-md-12 col-lg-12 col-sm-12 col-xs-12 "  >
+                <p class="margintop btnhover marginbottom  btn btn-success col-xl-12 col-md-12 col-lg-12 col-sm-12 col-xs-12" ng-show="buy" ng-click="buyStock()" > 
+                  Buy
+                </p>
+                
+                <div  ng-show="notbuy"> <hr><i class=" col-xl-1 col-md-1 col-lg-1 col-sm-1 col-xs-1 float-left glyphicon glyphicon-info-sign "></i>
+                  <div class=" col-xl-10 col-md-10 col-lg-10 col-sm-11 col-xs-11">please complete your account details before buying </div>
+                </div>
+              </div>
+              </div>
+       
+              
+              
+              </div>  
+
+              <div ng-show="stockBuy">
+                  <div style="background-color: grey" class="color btn btn-success  marginbottom hoverBackButton col-xl-2 col-md-2 col-lg-2 col-sm-2 col-xs-2  glyphicon glyphicon-arrow-left" ng-click="back()"></div>
+   <form ng-submit="SubmitStock()">               
+
+                  <div class="" > 
+   <input type="text"style="" class="form-control  " ng-model=" stockbuy.Quantity "  id="dataStock" placeholder="Quantity" required/>
+</div>
+<div class="margintop" >                 
+    <input type="text"style="" class="form-control  "  ng-model="stockbuy.Amount"  id="dataStock" placeholder="Amount you want to spend" required/>
+ </div>
+
+ <div class="  individualStock   col-xl-12 col-md-12 col-lg-12 col-sm-12 col-xs-12 "  >
+
+    <input
+          type="submit"
+          value="Submit"
+          class="whiteColor marginbottom btn  col-xl-12 col-md-12 col-lg-12 col-sm-12 col-xs-12 margintop btnhover"
+        />
+    
+ 
+  </div>
+</form> 
+</div>
+
+              </div>
+              
+            </div>

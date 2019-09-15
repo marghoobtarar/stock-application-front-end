@@ -1,0 +1,99 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+  <nav class="navbar navbar-default">
+    <div class="col-md-12 col-lg-12   col-sm-12">
+      <div class="navbar-header ">
+        <button
+          type="button"
+          class="navbar-toggle"
+          ng-click="isCollapsed = !isCollapsed"
+          aria-expanded="true"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand glyphicon glyphicon-stats" href="#/User"
+          >PkStock</a
+        >
+      </div>
+
+      <div
+        class="navbar-collapse collapse in"
+        collapse="isCollapsed"
+        aria-expanded="true"
+      >
+        <ul class="nav navbar-nav navbar-right">
+          <li><a ng-href="#/Account">Account</a></li>
+          <li><a ng-href="#/Repository">Repository</a></li>
+          <li><a ng-click="logout()">Logout</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+  <!-- Search -->
+  <div class=" search col-xl-3 col-md-5 col-lg-5  col-sm-5 col-xs-9">
+    
+          <inc-search 
+              class="stockSearch"
+                id="stockSearch"
+                ng-model="Stock" 
+                inc-item-value="name" 
+                inc-searcher="findStock" 
+                inc-item-label="this.name" 
+                inc-selected-label="Stock.name" />
+  </div>
+
+
+
+
+          <div class="graph col-xl-5 col-md-8 col-lg-7  col-sm-7 col-xs-11 ">
+              <div class="" id="chart-container"></div>
+
+          </div>
+          
+<div
+  class="stock Stockscroll   text-center col-xl-2 col-md-3 col-lg-3 col-sm-4 col-xs-11 "
+>
+  <div class="  card-title">Stock</div>
+  <div ng-repeat="i in stocks">
+    <div class="  StockCard" ng-click="stock(i.name)">
+      <a class="btn btn-dark" href="">
+
+{{        i.name
+}}   
+</a>
+  </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+ 
+
+
+
+
