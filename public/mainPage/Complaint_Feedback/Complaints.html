@@ -1,0 +1,197 @@
+<div>
+  <nav class="navbar navbar-default">
+    <div class="col-md-12 col-lg-12   col-sm-12">
+      <div class="navbar-header ">
+        <button
+          type="button"
+          class="navbar-toggle"
+          ng-click="isCollapsed = !isCollapsed"
+          aria-expanded="true"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand glyphicon glyphicon-stats" href="#/">PkStock</a>
+      </div>
+
+      <div
+        class="navbar-collapse collapse in"
+        collapse="isCollapsed"
+        aria-expanded="true"
+      >
+        <ul class="nav navbar-nav navbar-right">
+          <li><a ng-click="open_notification()">Notification</a></li>
+          <li><a href="#/Blog">Blog</a></li>
+
+          <li><a href="#/Help">Help</a></li>
+          <li><a ng-click="open_login('')">Login</a></li>
+          <li><a ng-click="open_register()">SignUp</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div
+  class="margin scroll padding  text-center col-xl-3 col-md-4 col-lg-3 col-sm-4 col-xs-11 "
+>
+  <h class="card-title">Complaint Against</h>
+  <hr />
+  <div class="row decoration">
+    <a ng-click="Complaint('Investor')">Investor</a><br />
+    <hr />
+    <a ng-click="Complaint('Company')">Company</a>
+    <br />
+  </div>
+</div>
+<div class="col-xl-8 col-md-7 col-lg-8 col-sm-7 col-xs-11">
+  <div ng-show="complaint.Investor">
+    <div>
+      <form class="main-page-form " ng-submit="send()">
+        <label for="">Complait Against</label>
+        <hr />
+        <input
+          type="text"
+          ng-model="user.investor"
+          placeholder="Investor Name"
+          class="form-control"
+          required
+        /><br />
+        <input
+          required
+          type="CNIC"
+          ng-model="user.cnic"
+          placeholder="Investor CNIC"
+          ng-keydown="getkeys($event)"
+          class="form-control"
+          maxlength="15"
+        /><br />
+        <input
+          type="text"
+          ng-model="user.account"
+          placeholder="Account Number"
+          class="form-control"
+          required
+        /><br />
+
+        <hr />
+
+        <label for="">Complaintant</label>
+        <hr />
+
+        <input
+          type="text"
+          ng-model="user.complaitant"
+          placeholder="Name"
+          class="form-control"
+        /><br />
+        <input
+          type="email"
+          ng-model="user.email"
+          placeholder="Email adress"
+          class="form-control"
+          required
+        /><br />
+        <input
+          type="text"
+          ng-model="user.phone"
+          placeholder="Phone Number"
+          class="form-control"
+          required
+        /><br />
+        <textarea
+          ng-model="user.complain"
+          placeholder="please write your Complain"
+          class="form-control"
+          required
+          minlength="50"
+          maxlength="500"
+        ></textarea
+        ><br />
+
+        <input
+          type="submit"
+          value="Submit"
+          class=" col-md-offset-3 btn btn-success col-md-6"
+        />
+      </form>
+    </div>
+  </div>
+
+  <div ng-show="complaint.Company">
+    <div>
+      <form class="main-page-form " ng-submit="sendCompany()">
+        <label for="">Complait Against</label>
+        <hr />
+        <input
+          type="text"
+          ng-model="company.name"
+          placeholder="Company Name"
+          class="form-control"
+          required
+        /><br />
+        <input
+          required
+          type="CNIC"
+          ng-model="company.NationalTaxNumber"
+          placeholder="Company Tax Number"
+          class="form-control"
+        /><br />
+        <input
+          type="text"
+          ng-model="company.registeratoionNumber"
+          placeholder="Company Registeration Number"
+          class="form-control"
+          required
+        /><br />
+
+        <hr />
+
+        <label for="">Complaintant</label>
+        <hr />
+
+        <input
+          required
+          type="text"
+          ng-model="company.complaitant"
+          placeholder="Name"
+          class="form-control"
+        /><br />
+        <input
+          required
+          type="email"
+          ng-model="company.email"
+          placeholder="Email adress"
+          class="form-control"
+          required
+        /><br />
+        <input
+          required
+          type="text"
+          ng-model="company.phone"
+          placeholder="Phone Number"
+          class="form-control"
+          required
+        /><br />
+        <textarea
+          required
+          ng-model="company.complain"
+          placeholder="please write your Complain"
+          class="form-control"
+          required
+          minlength="50"
+          maxlength="500"
+        ></textarea
+        ><br />
+
+        <input
+          type="submit"
+          value="Submit"
+          class=" col-md-offset-3 btn btn-success col-md-6"
+        />
+      </form>
+    </div>
+  </div>
+</div>

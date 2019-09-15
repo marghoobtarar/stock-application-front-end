@@ -1,0 +1,37 @@
+<div class="modal-content">
+    <div class="modal-body">
+      <div class="text-center center_login_title">Notificaton</div>
+      <div><p>You will be notify when the stock of an entity make high profit so you can buy it to make profit, please enter your email adress!!</p></div>
+      <form name ="registerForm" novalidate ng-submit = 'registerForm.$valid'>
+        <input
+        type="email"
+        ng-model="user.email"
+        placeholder="email"
+        class="form-control "
+        name="email"
+        ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+        required
+      />
+     <span  class="red_link message"ng-show="registerForm.email.$dirty&&registerForm.email.$error.pattern"> Please Enter Valid Email</span>
+  
+    </form>
+
+    </div>
+    <div class="text-center">
+      <button type="button" class="btn btn-success" ng-click="ok()">
+        Submit
+      </button>
+  
+      <button type="button" class="btn btn-default" ng-click="cancel()">
+        Close
+      </button>
+      <br /><br />
+      <div class="text-center">
+        <p class="red_link">{{error_notification_message}}</p>
+      
+    </div>
+    </div>
+  
+  </div>
+  <!-- /.modal-content -->
+  

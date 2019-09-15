@@ -1,0 +1,318 @@
+<div>
+  <nav class="navbar navbar-default">
+    <div class="col-md-12 col-lg-12   col-sm-12">
+      <div class="navbar-header ">
+        <button
+          type="button"
+          class="navbar-toggle"
+          ng-click="isCollapsed = !isCollapsed"
+          aria-expanded="true"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand glyphicon glyphicon-stats" href="#/User"
+          >PkStock</a
+        >
+      </div>
+
+      <div
+        class="navbar-collapse collapse in"
+        collapse="isCollapsed"
+        aria-expanded="true"
+      >
+        <ul class="nav navbar-nav navbar-right">
+          <li><a ng-href="#/Account">Account</a></li>
+          <li><a ng-click="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<div
+  class="margin Stockscroll scroll padding  text-center col-xl-3 col-md-4 col-lg-3 col-sm-4 col-xs-11   "
+>
+  <div class="  card-title">My Stocks</div>
+
+  <div class="  StockCard" ng-click="StockSale()" >
+    <hr />
+
+    <a class="btn    marginbottom" >Sale Stock</a>
+  </div>
+  <div class=" StockCard" ng-click="stockSaledPending()">
+    <a class="btn margintop  marginbottom" 
+      >Stock Sale Pending</a
+    > </div>
+     <div class=" StockCard" ng-click="StockSaled()">
+      <a class="btn margintop  marginbottom" 
+        >Stock Saled</a
+      >
+  </div>
+  <div class="  StockCard" ng-click="StockBuyed()">
+    <a class="btn  margintop  marginbottom" 
+      >Stock Buyed</a
+    >
+  </div>
+  <div class="  StockCard" ng-click="OrderPending()">
+    <a class="btn  margintop marginbottom" 
+      >Buy Stock Pending</a
+    >
+  </div>
+
+  <div class="  StockCard" ng-click="OrderHistory()">
+    <a class="btn  margintop marginbottom" 
+      >Buyed Stock History</a
+    >
+  </div>
+</div>
+
+<div ng-show="stockSale">
+  <div class=" col-xl-8 col-md-7 col-lg-8 col-sm-6 col-xs-11 ">
+    <table class="table  ">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Stock Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Buy Amount</th>
+
+          <th scope="col">Sale</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="i in StockSaleData">
+          <td>{{ i.StockName }}</td>
+          <td>{{ i.Quantity }}</td>
+
+          <td>{{ i.Amount }}</td>
+
+          <td>
+            <span
+              id="green"
+              ng-click="SaleOrder($index)"
+              class=" btn marginleft pointer glyphicon glyphicon-ok-circle"
+            ></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div ng-show="stockBuyed">
+  <div class=" col-xl-8 col-md-7 col-lg-8 col-sm-6 col-xs-11 ">
+    <table class="table  ">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Date</th>
+
+          <th scope="col">Stock Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>12/2/2019</td>
+          <td>Twitter</td>
+          <td>2345</td>
+          <td>43233</td>
+        </tr>
+        <tr>
+          <td>12/2/2019</td>
+
+          <td>Twitter</td>
+          <td>2345</td>
+          <td>43233</td>
+        </tr>
+        <tr>
+          <td>12/2/2019</td>
+
+          <td>Twitter</td>
+          <td>2345</td>
+          <td>43233</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div ng-show="orderPending">
+  <div class=" col-xl-8 col-md-7 col-lg-8 col-sm-6 col-xs-11 ">
+    <table class="table  ">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Date</th>
+
+          <th scope="col">Stock Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Cancel</th>
+          <th scope="col ">Progress</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="i in orderPendingData">
+          <div>
+            <td ng-model="delete.date">{{ i.Date }}</td>
+            <td ng-model="delete.name">{{ i.StockName }}</td>
+            <td>{{ i.Quantity }}</td>
+            <td>{{ i.Amount }}</td>
+            <td>
+              <span
+                ng-if="(i.Progress != 'progress')"
+                id="red"
+                ng-click="DeleteOrder($index)"
+                class="marginleft pointer glyphicon glyphicon-remove-circle"
+              ></span>
+              <span
+                ng-if="(i.Progress === 'progress')"
+                id="red"
+                class="marginleft pointer glyphicon glyphicon-ban-circle"
+              ></span>
+            </td>
+            <td>
+              <span
+                ng-if="i.Progress === 'progress'"
+                id="green"
+                class=" marginleft pointer glyphicon glyphicon-refresh glyphicon-spin"
+              ></span>
+              <span
+                ng-if="i.Progress != 'progress'"
+                id="green"
+                class=" marginleft pointer glyphicon glyphicon-minus"
+              ></span>
+            </td>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<div ng-show="stockSaled">
+  <div class=" col-xl-8 col-md-7 col-lg-8 col-sm-6 col-xs-11 ">
+    <table class="table  ">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Date</th>
+
+          <th scope="col">Stock Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="i in stockSaledData">
+          <div>
+            <td ng-model="delete.date">{{ i.Date }}</td>
+            <td ng-model="delete.name">{{ i.StockName }}</td>
+            <td>{{ i.Quantity }}</td>
+            <td>{{ i.Amount }}</td>
+            
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div ng-show="StockSaledPending">
+  <div class=" col-xl-8 col-md-7 col-lg-8 col-sm-6 col-xs-11 ">
+    <table class="table  ">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Date</th>
+
+          <th scope="col">Stock Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Cancel</th>
+          <th scope="col ">Progress</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="i in SaleorderPending">
+          <div>
+            <td ng-model="delete.date">{{ i.Date }}</td>
+            <td ng-model="delete.name">{{ i.StockName }}</td>
+            <td>{{ i.Quantity }}</td>
+            <td>{{ i.Amount }}</td>
+            <td>
+              <span
+                ng-if="(i.Progress != 'progress')"
+                id="red"
+                ng-click="DeleteOrder($index)"
+                class="marginleft pointer glyphicon glyphicon-remove-circle"
+              ></span>
+              <span
+                ng-if="(i.Progress === 'progress')"
+                id="red"
+                class="marginleft pointer glyphicon glyphicon-ban-circle"
+              ></span>
+            </td>
+            <td>
+              <span
+                ng-if="i.Progress === 'progress'"
+                id="green"
+                class=" marginleft pointer glyphicon glyphicon-refresh glyphicon-spin"
+              ></span>
+              <span
+                ng-if="i.Progress != 'progress'"
+                id="green"
+                class=" marginleft pointer glyphicon glyphicon-minus"
+              ></span>
+            </td>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div ng-show="orderHistory">
+  <div class=" col-xl-8 col-md-7 col-lg-8 col-sm-6 col-xs-11 ">
+    <table class="table  ">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Date</th>
+
+          <th scope="col">Stock Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="i in orderHistoryData">
+          <td>{{ i.Date }}</td>
+          <td>{{ i.StockName }}</td>
+          <td>{{ i.Quantity }}</td>
+          <td>{{ i.Amount }}</td>
+          <td ng-if="i.status=== 'cancelled'">
+            <span
+              id="red"
+              ng-click="DeleteOrder()"
+              class="marginleft pointer "
+              >{{ i.status }}</span
+            >
+          </td>
+          <td ng-if="i.status === 'completed'">
+            <span
+              id="green"
+              ng-click="DeleteOrder()"
+              class="marginleft pointer "
+              >{{ i.status }}
+              </span
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
